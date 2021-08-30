@@ -1,17 +1,17 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% block title %} Home {% endblock title %} 
+{% block title %} Home {% endblock title %}
 
-{% block content %} 
-    {% if user.is_authenticated %} 
-        Hi {{ user.username }}! You are {{ user.age }} years old.
-        <p> 
-            <br />
-            <a class="btn btn-primary" href="{% url 'logout' %}" role="button">Log Out</a>
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Newspaper App</h1>
+        <p class="lead">A Newspaper website built w/ Django</p>
+        <p class="lead">
+            <a 
+                class="btn btn-primary btn-lg" 
+                href="{% url 'article_list' %}" 
+                role="button">View All Articles
+            </a>
         </p>
-    {% else %} 
-        <p>You are not logged in</p>
-        <a class="btn btn-primary" href="{% url 'login' %}" role="button">Log In</a>        
-        <a class="btn btn-primary" href="{% url 'signup' %}" role="button">Sign Up</a> 
-    {% endif %} 
+    </div>
 {% endblock content %}

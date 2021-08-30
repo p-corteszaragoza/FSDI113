@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,7 +8,7 @@
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" 
         crossorigin="anonymous">
         <meta charset="utf-8">
-        <title> {% block title %} Newspaper App {% endblock title %} </title>
+        <title> {% block title %} Newspaper App {% endblock title %}</title>
     </head>
     <body>
         <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
@@ -22,7 +23,7 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'articles' %}">Articles</a>
+                        <a class="nav-link" href="{% url 'article_list' %}">Articles</a>
                     </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item dropdown">
@@ -30,6 +31,7 @@
                             {{user.username }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{% url 'article_new' %}">Create Article</a></li>
                                 <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
                                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                             </ul>
@@ -42,8 +44,8 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="{% url 'login' %}">Log In</a></li>
                                 <li><a class="dropdown-item" href="{% url 'signup' %}">Sign Up</a></li>
-                                <li><a class="dropdown-item" href="#">Reset Password</a></li>
                             </ul>
+                            <li><a class="dropdown-item" href="{% url 'password_reset' %}">Reset Password</a></li>
                             </li>
                         {% endif %}
                     </li>
